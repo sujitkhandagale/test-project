@@ -1,0 +1,41 @@
+// root variable
+:root {
+  --primary-color: #f8f6ef;
+  --notification_box: #2d2926;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family:
+    GTAmerica,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Ubuntu,
+    Cantarell,
+    Noto Sans,
+    sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+a {
+  font-family:
+    GTAmerica,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Ubuntu,
+    Cantarell,
+    Noto Sans,
+    sans-serif;
+}

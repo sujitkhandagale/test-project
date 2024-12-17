@@ -1,6 +1,7 @@
 import React from "react";
+import Layout from "@/components/layout/layout";
 
 function Product() {
-  return <div> Product</div>;
+  return <Layout></Layout>;
 }
 export default Product;
