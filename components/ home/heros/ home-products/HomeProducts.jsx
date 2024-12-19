@@ -48,10 +48,9 @@ function HomeProducts() {
         <Splide
           options={{
             perPage: 4,
-            loop: true,
+            loop: false,
             gap: 10,
             padding: 10,
-            drag: "free",
             arrows: true,
             pagination: false,
             animation: true,

@@ -101,3 +101,11 @@ a {
     max-width: 1520px;
   }
 }
+
+.splide__arrow:disabled {
+  opacity: 0 !important;
+}
+.splide__arrow {
+  height: 35px !important;
+  width: 35px !important;
+}
