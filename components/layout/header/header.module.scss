@@ -1,5 +1,7 @@
 .navbar {
-  display: flex;
+  //display: flex;
+  display: inline-block;
+  width: 100%;
   flex-direction: column;
   box-sizing: border-box;
   gap: 5px;
@@ -47,6 +49,10 @@
     gap: 10px;
     align-items: center;
     padding: 4px 35px;
+    min-height: 65px;
+    @media only screen and (max-width: 1200px) {
+      padding: 4px 15px;
+    }
     .navigation {
       display: flex;
       align-items: center;
@@ -64,9 +70,128 @@
           text-decoration: underline;
         }
       }
+      .icon {
+        display: none;
+      }
+      .sidebar {
+        z-index: 6;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        box-sizing: border-box;
+        transform: translate(-100%);
+        background: #fff;
+        width: 320px;
+        transition: transform 0.3s ease;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        .m_logo {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          .m_l_image {
+          }
+          .m_close {
+            cursor: pointer;
+          }
+        }
+        .search {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 2px;
+          border-radius: 12px;
+          overflow: hidden;
+          padding: 3px 10px;
+          background: var(--primary-color);
+          input {
+            padding: 10px;
+            border: none;
+            background: transparent;
+            transition: background 0.3s ease;
+            min-width: 80px;
+            font-size: 14px;
+            max-width: 180px;
+            color: black;
+            &:hover {
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+          svg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            min-width: 18px;
+            height: 18px;
+          }
+        }
+        .m_dropdown {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          .dropdown {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
+            cursor: pointer;
+            .m_d_link {
+              display: flex;
+              a {
+                display: block;
+                text-decoration: none;
+                color: black;
+                text-transform: uppercase;
+                width: fit-content;
+                font-size: 14px;
+                font-weight: 500;
+                white-space: nowrap;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+              .special {
+                color: #d33747;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+      .show {
+        transform: translate(0);
+      }
+      @media only screen and (max-width: 1200px) {
+        a {
+          display: none;
+        }
+        .icon {
+          display: block;
+          cursor: pointer;
+          z-index: 2;
+        }
+        .sidebar {
+          display: none;
+        }
+      }
     }
     .logo {
-      //display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media only screen and (max-width: 1200px) {
+        svg {
+          width: 140px;
+        }
+      }
     }
     .right_side {
       display: flex;
@@ -186,6 +311,17 @@
             }
           }
         }
+        .user {
+          display: none;
+          @media only screen and (max-width: 1200px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+          }
+        }
         .cart {
           position: relative;
           .count {
@@ -195,6 +331,14 @@
             // center
             transform: translate(-50%, -50%);
             font-size: 12px;
+          }
+        }
+        @media only screen and (max-width: 1200px) {
+          .search {
+            display: none;
+          }
+          .flag {
+            display: none;
           }
         }
       }
@@ -237,13 +381,15 @@
     }
   }
   .d_options {
-    position: absolute;
-    top: 150px;
+    position: relative;
     width: 100%;
     min-height: 250px;
     background: white;
     z-index: 3;
     box-sizing: border-box;
+    @media only screen and (max-width: 1200px) {
+      display: none;
+    }
     .categories {
       display: flex;
       flex-direction: row;
