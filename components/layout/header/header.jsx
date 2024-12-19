@@ -7,6 +7,7 @@ import { FiSearch } from "react-icons/fi";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 function Header() {
   const [selected, setSelected] = useState(null);
@@ -75,23 +76,47 @@ function Header() {
           }}
           className={style.d_options}
         >
-          <div className={style.categories}>
-            {selected?.subCategory?.map((item, index) => {
-              return (
-                <div className={style.list}>
-                  <h3>{item.title}</h3>
-                  {item?.category.map((sub_item, sub_index) => {
-                    return (
-                      <div className={style.sub_item}>
-                        <Link href={`/products/${sub_item.link}`}>
-                          {sub_item.title}
-                        </Link>
+          <div className={"container"}>
+            <div className={style.categories}>
+              {selected?.subCategory?.map((item, index) => {
+                return (
+                  <Fragment key={index}>
+                    <div className={style.list}>
+                      <h3>{item.title}</h3>
+                      {item?.category.map((sub_item, sub_index) => {
+                        return (
+                          <div className={style.sub_item}>
+                            <Link href={`/products/${sub_item.link}`}>
+                              {sub_item.title}
+                            </Link>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </Fragment>
+                );
+              })}
+              <div className={style.image_category}>
+                {selected?.attachedCategory?.map((image, imageIndex) => {
+                  return (
+                    <div key={imageIndex} className={style.box}>
+                      <div className={style.image}>
+                        <Image
+                          src={image?.image}
+                          width={200}
+                          height={200}
+                          alt="category"
+                        />
                       </div>
-                    );
-                  })}
-                </div>
-              );
-            })}
+                      <h4>{image?.title}</h4>
+                      <Link href={"/"}>
+                        Shop Now <MdOutlineKeyboardArrowRight />
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -142,7 +167,25 @@ const CardMenu = () => {
     <Fragment>
       <div onClick={() => setIsOpen(!isOpen)} className={style.item}>
         <div className={style.cart}>
-          <BsHandbag fontSize={20} />
+          <svg
+            className=""
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Bag"
+          >
+            <path
+              d="M17 8L13.8403 2.10185C13.4768 1.42344 12.7696 1 12 1V1C11.2304 1 10.5232 1.42344 10.1597 2.10185L7 8"
+              stroke="#2D2926"
+            ></path>
+            <path
+              d="M0.668604 11.1552C0.597369 11.0017 0.628395 10.8869 0.681697 10.8259C1.44137 9.95607 4.25953 7.5 12 7.5C19.7405 7.5 22.5586 9.95607 23.3183 10.8259C23.3716 10.8869 23.4026 11.0017 23.3314 11.1552L17.2698 24.2106C17.1879 24.3871 17.0109 24.5 16.8163 24.5H7.18369C6.98907 24.5 6.81214 24.3871 6.73019 24.2106L0.668604 11.1552Z"
+              stroke="#2D2926"
+            ></path>
+          </svg>
+          <div className={style.count}>0</div>
         </div>
       </div>
     </Fragment>
@@ -220,7 +263,7 @@ const DropDowns = [
         ],
       },
       {
-        title: "Holiday decorations",
+        title: "Holiday Shops",
         category: [
           {
             title: "Christmas",
@@ -239,6 +282,26 @@ const DropDowns = [
             link: "#",
           },
         ],
+      },
+    ],
+    attachedCategory: [
+      {
+        title: "Gift Card",
+        image:
+          "https://tnuck.com/cdn/shop/files/THUMBNAIL_18.png?v=1734542897&width=1536",
+        link: "#",
+      },
+      {
+        title: "Holiday Home",
+        image:
+          "https://tnuck.com/cdn/shop/files/241003_TUCKERNUCK_TERENCECONNORS_STILLLIFE_139.jpg?v=1729901710&width=1536",
+        link: "#",
+      },
+      {
+        title: "Gift for Her",
+        image:
+          "https://tnuck.com/cdn/shop/files/B3_10.24.24_000404_10_24_Bay_03_Additional_Gift_Guides_1.jpg?v=1729901676&width=1536",
+        link: "#",
       },
     ],
   },
