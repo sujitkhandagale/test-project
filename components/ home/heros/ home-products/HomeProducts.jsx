@@ -55,11 +55,14 @@ function HomeProducts() {
             pagination: false,
             animation: true,
             breakpoints: {
+              1200: {
+                perPage: 3,
+              },
               1024: {
                 perPage: 2,
               },
               768: {
-                perPage: 2,
+                perPage: 1,
               },
               640: {
                 perPage: 1,
