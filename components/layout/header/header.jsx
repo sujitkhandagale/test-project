@@ -7,6 +7,7 @@ import { HiOutlineXMark } from "react-icons/hi2";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import Cart from "@/components/cart/Cart";
 
 function Header() {
   const [selected, setSelected] = useState(null);
@@ -25,6 +26,14 @@ function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  useEffect(() => {
+    if (sidebar) {
+      // hide html scroll
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [sidebar]);
 
   return (
     <navbar className={style.navbar}>
@@ -36,7 +45,7 @@ function Header() {
           <Link href="/">sign in</Link>
           <Link href="/">Contact Us</Link>
           <Link href="/">about us</Link>
-          <div onClick={() => setSidebar(!sidebar)} className={style.icon}>
+          <div onClick={() => setSidebar(true)} className={style.icon}>
             <svg
               width="34"
               height="19"
@@ -70,7 +79,6 @@ function Header() {
               ></path>
             </svg>
           </div>
-
           <div
             ref={ref}
             className={`${style.sidebar} ${sidebar === true ? style.show : ""}`}
@@ -299,32 +307,34 @@ const Notification = () => {
   } else return null;
 };
 const CardMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <Fragment>
-      <div onClick={() => setIsOpen(!isOpen)} className={style.item}>
-        <div className={style.cart}>
-          <svg
-            className=""
-            width="24"
-            height="25"
-            viewBox="0 0 24 25"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-label="Bag"
-          >
-            <path
-              d="M17 8L13.8403 2.10185C13.4768 1.42344 12.7696 1 12 1V1C11.2304 1 10.5232 1.42344 10.1597 2.10185L7 8"
-              stroke="#2D2926"
-            ></path>
-            <path
-              d="M0.668604 11.1552C0.597369 11.0017 0.628395 10.8869 0.681697 10.8259C1.44137 9.95607 4.25953 7.5 12 7.5C19.7405 7.5 22.5586 9.95607 23.3183 10.8259C23.3716 10.8869 23.4026 11.0017 23.3314 11.1552L17.2698 24.2106C17.1879 24.3871 17.0109 24.5 16.8163 24.5H7.18369C6.98907 24.5 6.81214 24.3871 6.73019 24.2106L0.668604 11.1552Z"
-              stroke="#2D2926"
-            ></path>
-          </svg>
-          <div className={style.count}>0</div>
-        </div>
+      <div className={style.item}>
+        <Cart
+          button={
+            <div className={style.cart}>
+              <svg
+                className=""
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="Bag"
+              >
+                <path
+                  d="M17 8L13.8403 2.10185C13.4768 1.42344 12.7696 1 12 1V1C11.2304 1 10.5232 1.42344 10.1597 2.10185L7 8"
+                  stroke="#2D2926"
+                ></path>
+                <path
+                  d="M0.668604 11.1552C0.597369 11.0017 0.628395 10.8869 0.681697 10.8259C1.44137 9.95607 4.25953 7.5 12 7.5C19.7405 7.5 22.5586 9.95607 23.3183 10.8259C23.3716 10.8869 23.4026 11.0017 23.3314 11.1552L17.2698 24.2106C17.1879 24.3871 17.0109 24.5 16.8163 24.5H7.18369C6.98907 24.5 6.81214 24.3871 6.73019 24.2106L0.668604 11.1552Z"
+                  stroke="#2D2926"
+                ></path>
+              </svg>
+              <div className={style.count}>0</div>
+            </div>
+          }
+        />
       </div>
     </Fragment>
   );

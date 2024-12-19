@@ -86,7 +86,7 @@
         transition: transform 0.3s ease;
         height: 100%;
         padding: 20px;
-        display: flex;
+        display: none;
         flex-direction: column;
         gap: 30px;
         .m_logo {
@@ -108,7 +108,7 @@
           border-radius: 12px;
           overflow: hidden;
           padding: 3px 10px;
-          background: var(--primary-color);
+          background: #fbfaf6;
           input {
             padding: 10px;
             border: none;
@@ -117,6 +117,7 @@
             min-width: 80px;
             font-size: 14px;
             max-width: 180px;
+            font-weight: 600;
             color: black;
             &:hover {
             }
@@ -179,7 +180,7 @@
           z-index: 2;
         }
         .sidebar {
-          display: none;
+          display: flex;
         }
       }
     }
@@ -214,7 +215,7 @@
           border-radius: 12px;
           overflow: hidden;
           padding: 3px 10px;
-          background: var(--primary-color);
+          background: #fbfaf6;
           input {
             padding: 10px;
             border: none;
