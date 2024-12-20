@@ -83,12 +83,53 @@ function HomeProducts() {
                     />
                   </div>
                   <div className={style.details}>
+                    <div className={style.sizes}>
+                      <Splide
+                        options={{
+                          perPage:
+                            item.sizes?.length > 4 ? 4 : item?.sizes?.length,
+                          loop: false,
+                          gap: 5,
+                          arrows: true,
+                          focus: "center",
+                          pagination: false,
+                          animation: true,
+                        }}
+                      >
+                        {item.sizes.map((size, index) => {
+                          return (
+                            <SplideSlide
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                              key={index}
+                            >
+                              <span>{size}</span>
+                            </SplideSlide>
+                          );
+                        })}
+                      </Splide>
+                    </div>
                     <div className={style.name}>
                       <h3>{item.name}</h3>
                       <p>{item.details}</p>
                       <span>{item.price}</span>
                     </div>
-                    <div className={style.varient}></div>
+                    <div className={style.variants}>
+                      {item.variants.map((variant) => {
+                        return (
+                          <input
+                            style={{
+                              accentColor: variant,
+                            }}
+                            type="radio"
+                            checked={true}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </SplideSlide>
@@ -108,6 +149,47 @@ const products = [
     image:
       "https://tnuck.com/cdn/shop/files/ebs5fqoCGXLlQedMTU3QoIKkr3fd2Ljo-1_640x.jpg?v=1734457498",
     details: "Black Floral Applique Helena Dress",
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    price: "$ 79.00",
+    images: [""],
+    variants: ["red", "blue"],
+  },
+  {
+    name: "TuckerNuck",
+    image:
+      "https://tnuck.com/cdn/shop/files/Xao6afpdoVP74wgidXxzyGUbqywmr3Fe-1_640x.jpg?v=1734636420",
+    details: "Black Floral Applique Helena Dress",
+    sizes: ["XS"],
+    price: "$ 79.00",
+    images: [""],
+    variants: ["black"],
+  },
+  {
+    name: "TuckerNuck",
+    image:
+      "https://tnuck.com/cdn/shop/files/loGZxWwOFlJZZJBNlL1VRpdVkHYgEkOg-1_640x.jpg?v=1734635220",
+    details: "Black Floral Applique Helena Dress",
+    sizes: ["XL", "XXL"],
+    price: "$ 79.00",
+    images: [""],
+    variants: ["red"],
+  },
+  {
+    name: "TuckerNuck",
+    image:
+      "https://tnuck.com/cdn/shop/files/9cQuDzqAR64osQh3AUu6N5siJpfqSOe3-1_640x.jpg?v=1734532230",
+    details: "Black Floral Applique Helena Dress",
+    price: "$ 79.00",
+    sizes: ["XL", "XXL"],
+    images: [""],
+    variants: ["pink"],
+  },
+  {
+    name: "TuckerNuck",
+    image:
+      "https://tnuck.com/cdn/shop/files/KwTZA964m8DOWlheB5txFyuNHsKwihO7-1_640x.jpg?v=1734465194",
+    details: "Black Floral Applique Helena Dress",
+    sizes: ["XL", "XXL"],
     price: "$ 79.00",
     images: [""],
     variants: [],
@@ -117,42 +199,7 @@ const products = [
     image:
       "https://tnuck.com/cdn/shop/files/ebs5fqoCGXLlQedMTU3QoIKkr3fd2Ljo-1_640x.jpg?v=1734457498",
     details: "Black Floral Applique Helena Dress",
-    price: "$ 79.00",
-    images: [""],
-    variants: [],
-  },
-  {
-    name: "TuckerNuck",
-    image:
-      "https://tnuck.com/cdn/shop/files/ebs5fqoCGXLlQedMTU3QoIKkr3fd2Ljo-1_640x.jpg?v=1734457498",
-    details: "Black Floral Applique Helena Dress",
-    price: "$ 79.00",
-    images: [""],
-    variants: [],
-  },
-  {
-    name: "TuckerNuck",
-    image:
-      "https://tnuck.com/cdn/shop/files/ebs5fqoCGXLlQedMTU3QoIKkr3fd2Ljo-1_640x.jpg?v=1734457498",
-    details: "Black Floral Applique Helena Dress",
-    price: "$ 79.00",
-    images: [""],
-    variants: [],
-  },
-  {
-    name: "TuckerNuck",
-    image:
-      "https://tnuck.com/cdn/shop/files/ebs5fqoCGXLlQedMTU3QoIKkr3fd2Ljo-1_640x.jpg?v=1734457498",
-    details: "Black Floral Applique Helena Dress",
-    price: "$ 79.00",
-    images: [""],
-    variants: [],
-  },
-  {
-    name: "TuckerNuck",
-    image:
-      "https://tnuck.com/cdn/shop/files/ebs5fqoCGXLlQedMTU3QoIKkr3fd2Ljo-1_640x.jpg?v=1734457498",
-    details: "Black Floral Applique Helena Dress",
+    sizes: ["XL", "XXL"],
     price: "$ 79.00",
     images: [""],
     variants: [],
