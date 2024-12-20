@@ -12,6 +12,8 @@ export default function Document() {
         rel="stylesheet"
         href="https://www.cdnfonts.com/theodora-personal-use.font"
       />
+      {/*  media query */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <body>
         <Main />
