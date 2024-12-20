@@ -3,6 +3,7 @@ import style from "./home_products.module.scss";
 import Image from "next/image";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import {CiHeart} from "react-icons/ci";
 
 function HomeProducts() {
   return (
@@ -74,6 +75,9 @@ function HomeProducts() {
             return (
               <SplideSlide key={index}>
                 <div className={style.product}>
+                  <div className={style.overlay}>
+                    <CiHeart fontSize={24} />
+                  </div>
                   <div className={style.image}>
                     <Image
                       src={item.image}

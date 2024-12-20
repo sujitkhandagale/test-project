@@ -72,6 +72,14 @@
     .product {
       width: 100%;
       box-sizing: border-box;
+      position: relative;
+      .overlay {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 10px;
+        display: none;
+      }
       .image {
         width: 100%;
         height: 100%;
@@ -131,6 +139,10 @@
         }
       }
       &:hover {
+        .overlay {
+          display: block;
+          cursor: pointer;
+        }
         .details {
           .sizes {
             display: block;
