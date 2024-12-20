@@ -211,6 +211,9 @@ function Header() {
               className={`${style.option} ${item.special === true ? style.special : ""}`}
             >
               {item.title}
+              <div className={style.number}>
+                <span>{item.count}</span>
+              </div>
             </div>
           );
         })}
@@ -411,6 +414,62 @@ const Flags = () => {
 };
 
 const DropDowns = [
+  {
+    title: "New",
+    count: 234,
+    subCategory: [
+      {
+        title: "Gifts for all",
+        category: [
+          {
+            title: "For Her",
+            link: "#",
+          },
+          {
+            title: "For Him",
+            link: "#",
+          },
+          {
+            title: "For Them",
+            link: "#",
+          },
+          {
+            title: "Birthdays",
+            link: "#",
+          },
+        ],
+      },
+      {
+        title: "Holiday Shops",
+        category: [
+          {
+            title: "Christmas",
+            link: "#",
+          },
+          {
+            title: "Thanksgiving",
+            link: "#",
+          },
+          {
+            title: "Valentine's Day",
+            link: "#",
+          },
+          {
+            title: "Easter",
+            link: "#",
+          },
+        ],
+      },
+    ],
+    attachedCategory: [
+      {
+        title: "New Arrivals",
+        image:
+            "https://tnuck.com/cdn/shop/files/portrait_copy_d5e191fa-7af8-40ee-a358-c2790e7a7529.png?v=1734475464&width=1536",
+        link: "#",
+      },
+    ],
+  },
   {
     title: "Holiday and gifts",
     special: true,
